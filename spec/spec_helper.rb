@@ -1,4 +1,3 @@
 require 'rspec'
-require 'bonfig/version'
+require 'bonfig'
 
-include Bonfig

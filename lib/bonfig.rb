@@ -1,4 +1,3 @@
-require 'ostruct'
 require 'bonfig/version'
 
 module Bonfig
