@@ -2,7 +2,29 @@ require 'spec_helper'
 require 'bonfig'
 
 describe Bonfig do
-  it "should have a VERSION constant" do
-    subject.const_get('VERSION').should_not be_empty
+  subject do
+    module MyModule
+      extend Bonfig
+
+      bonfig do
+        config :name
+
+        config :has_default, default: 'hello'
+        config :has_block_default, default: -> { name }
+        config :nested do
+          config :hello
+        end
+
+        config :size
+      end
+    end
+
+    MyModule.config do |c|
+      c.name = 'shit'
+    end
+    MyModule
+  end
+  it 'should have a VERSION constant' do
+    expect(subject.config.name).to eq('shit')
   end
 end

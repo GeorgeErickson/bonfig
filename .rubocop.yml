@@ -1,8 +1,18 @@
 Documentation:
   Enabled: false
 
-LineLength:
-  Max: 100
-
-SpaceInsideHashLiteralBraces:
+RedundantSelf:
   Enabled: false
+
+LineLength:
+  Max: 200
+
+HashSyntax:
+  EnforcedStyle: ruby19
+
+AllCops:
+  Includes:
+    - Gemfile
+    - Rakefile
+  Excludes:
+    - bin/**
