@@ -2,7 +2,7 @@ source 'https://rubygems.org'
 
 gemspec
 
-group :development do
+group :extra do
   gem 'pry'
   gem 'guard'
   gem 'guard-rspec'
