@@ -1,0 +1,8 @@
+Documentation:
+  Enabled: false
+
+LineLength:
+  Max: 100
+
+SpaceInsideHashLiteralBraces:
+  Enabled: false
