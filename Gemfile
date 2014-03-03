@@ -8,5 +8,4 @@ group :extra do
   gem 'guard-rspec'
   gem 'guard-rubocop'
   gem 'gem-release'
-  gem 'coveralls', require: false
 end
