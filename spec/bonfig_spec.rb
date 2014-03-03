@@ -9,7 +9,6 @@ describe Bonfig do
         config :name
 
         config :has_default, default: 'hello'
-        config :has_block_default, default: -> { name }
         config :nested do
           config :hello
         end
@@ -19,11 +18,19 @@ describe Bonfig do
     end
 
     MyModule.config do |c|
-      c.name = 'shit'
+      c.name = 1
+      c.size = 'test'
+      c.nested.hello = 2
     end
     MyModule
   end
-  it 'should have a VERSION constant' do
-    expect(subject.config.name).to eq('shit')
+  it 'should be configurable' do
+    config = subject.config
+
+    expect(config.name).to eq(1)
+    expect(config.has_default).to eq('hello')
+    expect(config.nested.hello).to eq(2)
+
+    expect(config.size).to eq('test')
   end
 end
