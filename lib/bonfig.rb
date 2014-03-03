@@ -8,24 +8,51 @@ module Bonfig
     def config(name, options = {}, &block)
       name = name.to_sym
       if block
-        @_data[name] = BlankConfig.new(&block)
+        _nested(name, &block)
       else
         @_data[name] = options[:default]
+        define_method("#{name}=") { |value| @_data[name] = value }
+        define_method(name) { @_data[name] }
       end
 
-      include_field(name)
+      define_method("#{name}?") { @_data.key?(name) }
+    end
+
+    def [](key)
+      @_data[key]
     end
 
     protected
 
-    def include_field(name)
+    def _update(data)
+      @_data.update(data)
+    end
+
+    def _nested(name, &block)
+      nested = @_data[name] = BlankConfig.new(&block)
+
+      define_method(name) do |&b|
+        if b
+          b.call(nested)
+        else
+          @_data[name]
+        end
+      end
+
+      define_method("#{name}=") do |val|
+        if val.is_a?(::Hash)
+          nested._update(val)
+        else
+          fail 'Can\'t assign value to nested config.'
+        end
+      end
+    end
+
+    def define_method(name, &block)
       name = name.to_sym
       (class << self; self; end).class_eval do
-        define_method(name) { @_data[name] }
-        define_method("#{name}?") { @_data.key?(name) }
-        define_method("#{name}=") { |value| @_data[name] = value }
+        define_method(name, &block)
       end
-      name
     end
   end
 

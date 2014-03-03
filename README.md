@@ -22,7 +22,7 @@ module MyModule
     config :redis do
       config :port, default: 6379
       config :host, default: 'localhost'
-      config :url, default: -> { "redis://#{host}:#{port}" }
+      config :db, default: 1
     end
   end
 end
@@ -44,5 +44,7 @@ end
 
 
 puts MyModule.config.index_name # 'dev'
-puts MyModule.config.redis.url  # 'redis://0.0.0.0:1234'
+puts MyModule.config.redis.port  # 1234
+puts MyModule.config.redis.host  # '0.0.0.0'
+puts MyModule.config.redis.db  # 1
 ```
