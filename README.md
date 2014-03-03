@@ -3,7 +3,7 @@
 [![Code Climate](https://codeclimate.com/github/GeorgeErickson/bonfig.png)](https://codeclimate.com/github/GeorgeErickson/bonfig)
 [![Coverage Status](https://coveralls.io/repos/GeorgeErickson/bonfig/badge.png?branch=master)](https://coveralls.io/r/GeorgeErickson/bonfig?branch=master)
 [![Dependency Status](https://gemnasium.com/GeorgeErickson/bonfig.png)](https://gemnasium.com/GeorgeErickson/bonfig)
-
+[![Gem Version](https://badge.fury.io/rb/bonfig.png)](http://badge.fury.io/rb/bonfig)
 
 Simple configuration for modules.
 
