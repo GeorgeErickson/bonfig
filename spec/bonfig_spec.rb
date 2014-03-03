@@ -1,5 +1,4 @@
 require 'spec_helper'
-require 'bonfig'
 
 describe Bonfig do
   subject do

@@ -2,10 +2,6 @@ require 'bonfig/version'
 
 module Bonfig
   class BlankConfig < BasicObject
-    def __class__
-      BlankConfig
-    end
-
     def initialize(&block)
       @_data = ::Hash.new
       instance_eval(&block)

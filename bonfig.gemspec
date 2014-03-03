@@ -5,12 +5,12 @@ require File.expand_path('../lib/bonfig/version', __FILE__)
 Gem::Specification.new do |gem|
   gem.name          = "bonfig"
   gem.version       = Bonfig::VERSION
-  gem.summary       = %q{TODO: Summary}
-  gem.description   = %q{TODO: Description}
+  gem.summary       = %q{A simple config mixin for gems.}
+  gem.description   = %q{Configuration Mixin}
   gem.license       = "MIT"
   gem.authors       = ["George Erickson"]
-  gem.email         = "george55@mit.edu"
-  gem.homepage      = "https://rubygems.org/gems/bonfig"
+  gem.email         = "george.erickson.jr@gmail.com"
+  gem.homepage      = "https://github.com/GeorgeErickson/bonfig/"
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
