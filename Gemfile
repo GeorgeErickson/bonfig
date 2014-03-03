@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 gemspec
 
 group :development do
-  gem 'kramdown'
-  gem 'rspec'
   gem 'pry'
   gem 'guard'
   gem 'guard-rspec'

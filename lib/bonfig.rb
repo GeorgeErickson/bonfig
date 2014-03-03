@@ -1,5 +1,3 @@
-require 'bonfig/version'
-
 module Bonfig
   class BlankConfig < BasicObject
     def initialize(&block)
