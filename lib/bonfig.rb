@@ -7,7 +7,7 @@ module Bonfig
       BlankConfig
     end
 
-    def initialize(data = nil, &block)
+    def initialize(&block)
       @_data = ::Hash.new
       instance_eval(&block)
     end
