@@ -22,6 +22,17 @@ module Bonfig
       @_data[key]
     end
 
+    def to_hash
+      @_data.reduce({}) do |accum, (k, val)|
+        accum[k] = val.instance_of?(BlankConfig) ? val.to_hash : val
+        accum
+      end
+    end
+
+    def instance_of?(klass)
+      klass == BlankConfig
+    end
+
     protected
 
     def _update(data)

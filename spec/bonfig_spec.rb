@@ -37,6 +37,11 @@ describe Bonfig do
 
       expect(subject.config.name).to eq(1)
       expect(subject.config.name_default).to eq(2)
+      expect(subject.config.to_hash).to eq(name: 1, name_default:  2)
+    end
+
+    it 'to_hash' do
+      expect(subject.config.to_hash).to eq(name: nil, name_default:  1)
     end
   end
 
@@ -67,9 +72,9 @@ describe Bonfig do
         c.redis do |r|
           r.port = 1
         end
-
         expect(subject.config.redis.port).to eq(1)
         expect(subject.config.redis.host).to eq('localhost')
+        expect(subject.config.to_hash).to eq(redis: { port: 1, host: 'localhost' })
       end
     end
 

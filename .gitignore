@@ -4,3 +4,4 @@ pkg/
 coverage/
 vendor/cache/*.gem
 .bundle/
+.DS_Store
